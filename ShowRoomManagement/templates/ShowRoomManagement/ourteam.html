@@ -1,0 +1,26 @@
+{% extends 'ShowRoomManagement/base.html' %}
+{% block title %}ShowRooms{% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h1>Select a showroom to see its members!</h1>
+    <div class="showroomwrapper">
+        {% for showroom in showrooms %}
+        <div class="card" style="background-image: url('/media/{{showroom.showroom_image}}');background-size: cover;width: 25rem;height: 25rem;margin-top: 10px;display: grid;place-content: end;margin-left: 10px;">
+            <div class="card-body" style="width: 25rem;">
+              <h5 class="card-title" style="color:white;">{{showroom.name}}</h5>
+              <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 16pt;color:white;">Located At <span class="badge bg-black">{{showroom.location}}</span></p>
+              <a href="{% url 'ShowRoomManagement:TeamView' showroom.id %}" class="btn btn-primary">See Team</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .showroomwrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+</style>
+{% endblock %}

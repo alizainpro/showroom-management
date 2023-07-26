@@ -1,0 +1,26 @@
+{% extends 'ShowRoomManagement/base.html' %}
+{% block title %}Brands{% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h1>Cars Avaliable in {{showroomname}}</h1> <a class="btn btn-primary" href="{% url 'ShowRoomManagement:TeamView' showroom.id %}">View Members/Team</a>
+    <div class="brandwrapper">
+        {% for car in cars %}
+        <div class="card" style="background-image: url('/media/{{car.car_image}}');background-size: cover;width: 25rem;height: 25rem;margin-top: 10px;display: grid;place-content: end;margin-left: 10px;">
+            <div class="card-body" style="width: 25rem;">
+              <h5 class="card-title" style="color:white;">{{car.name}}</h5>
+              <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 16pt;color:white;"><span class="badge bg-black">Brand : {{car.brand.name}} </span></p>
+              <a href="{% url 'ShowRoomManagement:Car' car.id %}" class="btn btn-primary">See Car Detail</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .brandwrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+</style>
+{% endblock %}

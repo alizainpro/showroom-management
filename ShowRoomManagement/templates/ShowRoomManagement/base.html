@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'ShowRoomManagement/css/bootstrap.min.css' %}">
+    <script src="{% static 'ShowRoomManagement/js/bootstrap.js' %}"></script>
+    <script src="{% static 'ShowRoomManagement/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'ShowRoomManagement/js/bootstrap.esm.js' %}"></script>
+</head>
+<body>
+    {% include 'ShowRoomManagement/header.html' %}
+    {% block content %}
+
+    {% endblock %}
+    {% include 'ShowRoomManagement/footer.html' %}
+</body>
+</html>
